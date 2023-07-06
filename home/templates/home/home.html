@@ -1,3 +1,184 @@
-{% include 'base.html' %}
+<!-- home/templates/home/home.html -->
 
-<h1>Hello World</h1>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Slider Start -->
+<section class="banner position-relative">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-7">
+                <div class="banner-content">
+                    <h2 class="text-white">Emilian C T</h2>
+                    <p class="text-white mt-4 mb-5">I am a web developer with
+                        half a decade of experience in web development. I work
+                        with Python, Django, SEO, AI, HTML, CSS, JS, React,
+                        Bootstrap, and create web apps and websites for small
+                        businesses and individuals.</p>
+
+                    <a href="#" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="banner-img d-none d-lg-block">
+                <img src="{% static 'img/images/banner/banner-3.png' %}" alt=""
+                    class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Slider End -->
+
+<!-- Service Start -->
+<section class="section-sm service bg-secondary">
+    <img src="{% static 'img/images/bg/feature-bg.png' %}" alt=""
+        class="overlay-shape">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item mb-4 mb-lg-0">
+                    <i class="ti-ruler-pencil text-color"></i>
+                    <h4 class="my-4 text-white">Web Development</h4>
+                    <p>I specialize in Python and Django, creating robust and
+                        scalable web applications.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item mb-4 mb-lg-0">
+                    <i class="ti-announcement text-color"></i>
+                    <h4 class="my-4 text-white">SEO & Marketing</h4>
+                    <p>I ensure that your website is optimized for search
+                        engines and create marketing strategies to help your
+                        business grow.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item mb-4 mb-lg-0">
+                    <i class="ti-palette text-color"></i>
+                    <h4 class="my-4 text-white">UI/UX Design</h4>
+                    <p>I create intuitive and engaging designs for web and
+                        mobile applications, ensuring a great user experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Service End -->
+
+<!-- About Start -->
+<section class="section about overflow-hidden">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="about-img">
+                    <img src="{% static 'img/images/about/about.jpg' %}" alt=""
+                        class="img-fluid w-100">
+                    <div class="video-play">
+                        <div class="play-bg">
+                            <a class="popup-youtube" href="#"><i
+                                    class="fa fa-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-7 offset-lg-1 mt-5 mt-md-0">
+                <span class="text-color h5 text-uppercase">About Me</span>
+                <h3 class="mb-4 mt-3">I am a Web Developer</h3>
+                <p>With a passion for coding and a knack for problem-solving, I
+                    have spent the last five years honing my skills in web
+                    development. I am committed to creating user-friendly,
+                    efficient, and aesthetically pleasing websites and web
+                    applications.</p>
+                <p class="mb-5">Whether you're a small business owner looking to
+                    expand your online presence or an individual seeking a
+                    personal website, I'm here to help. Let's create something
+                    amazing together.</p>
+
+                <a href="#" class="btn btn-primary">Contact Me</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About End -->
+
+<!-- Portfolio Start -->
+
+<!-- Counter Start -->
+<section class="section-sm counter-section bg-secondary position-relative">
+    <img src="{% static 'img/images/bg/cta-bg.png' %}" alt=""
+        class="overlay-shape">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-content d-flex mb-5 mb-lg-0">
+                    <i class="ti-user mr-4"></i>
+                    <div>
+                        <h2 class="mb-0"><span class="counter">10</span>+</h2>
+                        <p class="text-capitalize mb-0">Satisfied Clients</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-content d-flex mb-5 mb-lg-0">
+                    <i class="ti-briefcase mr-4"></i>
+                    <div>
+                        <h2 class="mb-0"><span class="counter">50</span>+</h2>
+                        <p class="text-capitalize mb-0">Projects Completed</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-content d-flex mb-5 mb-lg-0">
+                    <i class="ti-calendar mr-4"></i>
+                    <div>
+                        <h2 id="experience" class="mb-0"></h2>
+                        <p class="text-capitalize mb-0">of Experience</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-content d-flex">
+                    <i class="fa fa-code mr-4"></i>
+                    <div>
+                        <h2 class="mb-0"><span class="counter">5</span>+</h2>
+                        <p class="text-capitalize mb-0">Programming Languages
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Counter End -->
+
+<!-- Skill Start -->
+
+<!-- Testimonial Start -->
+
+<!-- Clients Start -->
+
+<!-- Team Start -->
+
+<!-- Blog Start -->
+
+<!-- Call To action Start -->
+<section class="position-relative section-sm bg-extra">
+	<img src="{% static 'img/images/bg/cta-bg-2.png' %}" alt="" class="overlay-shape">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-9 mb-5 mb-lg-0">
+				<h2 class="text-white mb-0">I give the smart solution for your business</h2>
+			</div>
+			<div class="col-lg-3">
+				<a href="#" class="btn btn-primary">get a quote</a>	
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Call to action End -->
+
+
+
+{% endblock %}

@@ -28,24 +28,24 @@
         <!--Favicon-->
         <link rel="shortcut icon" href="{% static 'img/images/favicon.ico' %}" type="image/x-icon">
         <link rel="icon" href="{% static 'img/images/favicon.ico' %}" type="image/x-icon">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
       
       </head>
       <body>
-        <header>
-            <!-- Add your header content here -->
-        </header>
-    
-        <nav>
-            <!-- Add your navigation bar here -->
-        </nav>
+
+        <body data-spy="scroll" data-target="#ftco-navbar-spy" data-offset="0" class=""></body>
+        
+        {% include 'navbar.html' %}
+  
     
         <main>
             {% block content %}{% endblock %}
         </main>
     
-        <footer>
-            <!-- Add your footer content here -->
-        </footer>
+        {% include 'footer.html' %}
     
         <!-- jQuery -->
         <script src="{% static 'plugins/jQuery/jquery.min.js' %}"></script>
@@ -66,6 +66,8 @@
         <!-- Main Script -->
         <script src="{% static 'js/script.js' %}"></script>
         <script src="{% static 'js/contact.js' %}"></script>
+        <script src="{% static 'js/experience.js' %}"></script>
+
 
     </body>
 </html>

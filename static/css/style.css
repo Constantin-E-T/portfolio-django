@@ -407,7 +407,7 @@ a:focus {
   }
 }
 .content-inner {
-  background: url("../images/bg/menu-bg.jpg") no-repeat;
+  background: url("../img/images/bg/menu-bg.jpg") no-repeat;
 }
 
 .main-wrapper {
@@ -557,7 +557,7 @@ a:focus {
 
 .content-inner.left {
   width: 100px;
-  background: url("../images/bg/menu-bg-2.jpg") no-repeat;
+  background: url("../img/images/bg/menu-bg-2.jpg") no-repeat;
   background-size: cover;
 }
 
@@ -615,7 +615,7 @@ a:focus {
 .navbar-vertical.navbar-expand-lg.fixed-left {
   left: 0;
   border-width: 0 1px 0 0;
-  background: url("../images/bg/menu-bg.jpg") no-repeat;
+  background: url("../img/images/bg/menu-bg.jpg") no-repeat;
   background-size: cover;
 }
 
@@ -715,7 +715,7 @@ a:focus {
   top: 0;
   height: 100vh;
   width: 100px;
-  background: url("../images/bg/menu-bg-2.jpg") no-repeat;
+  background: url("../img/images/bg/menu-bg-2.jpg") no-repeat;
   background-size: cover;
 }
 .side-nav .toggler {
@@ -764,7 +764,7 @@ a:focus {
 }
 
 .banner {
-  background: url("../images/banner/banner.jpg") center center no-repeat;
+  background: url("../img/images/banner/banner.jpg") center center no-repeat;
   background-size: cover;
   overflow: hidden;
 }
@@ -904,7 +904,7 @@ a:focus {
 .about:before {
   position: absolute;
   content: "";
-  background: url("../images/about/pattern-bg.png") no-repeat;
+  background: url("../img/images/about/pattern-bg.png") no-repeat;
   width: 90%;
   height: 100%;
   left: 97%;
@@ -958,7 +958,7 @@ a:focus {
 .about .about-img:before {
   position: absolute;
   content: "";
-  background: url("../images/about/pattern-bg.png") no-repeat;
+  background: url("../img/images/about/pattern-bg.png") no-repeat;
   width: 100%;
   height: 100%;
   left: -56px;
@@ -969,32 +969,32 @@ a:focus {
 }
 
 .bg-1 {
-  background: url("../images/bg/about-bg.jpg") no-repeat;
+  background: url("../..img//bg/about-bg.jpg") no-repeat;
   background-size: cover;
 }
 
 .about-banner {
-  background: url("../images/bg/about-bg-2.jpg") no-repeat;
+  background: url("../img/images/bg/about-bg-2.jpg") no-repeat;
   background-size: cover;
 }
 
 .service-bg {
-  background: url("../images/bg/service-bg.jpg") 0% 50% no-repeat;
+  background: url("../img/images/bg/service-bg.jpg") 0% 50% no-repeat;
   background-size: cover;
 }
 
 .portfolio-bg {
-  background: url("../images/bg/bg-portfolio.jpg") 0% 40% no-repeat;
+  background: url("../img/images/bg/bg-portfolio.jpg") 0% 40% no-repeat;
   background-size: cover;
 }
 
 .blog-bg {
-  background: url("../images/bg/blog-bg.jpg") 0% 40% no-repeat;
+  background: url("../img/images/bg/blog-bg.jpg") 0% 40% no-repeat;
   background-size: cover;
 }
 
 .bg-2 {
-  background: url("../images/bg/bg-10.jpg") 53% 5% no-repeat;
+  background: url("../img/images/bg/bg-10.jpg") 53% 5% no-repeat;
 }
 
 .header-padding {
@@ -1019,7 +1019,7 @@ a:focus {
 }
 
 .portfolio {
-  background: url("../images/bg/bg-2.jpg") no-repeat;
+  background: url("../img/images/bg/bg-2.jpg") no-repeat;
   background-size: cover;
 }
 
@@ -1106,12 +1106,12 @@ a:focus {
 }
 
 .post-single-share {
-  background: url("../images/bg/bg-1.jpg") no-repeat;
+  background: url("../img/images/bg/bg-1.jpg") no-repeat;
   background-size: cover;
 }
 
 .related-project {
-  background: url("../images/bg/bg-11.jpg") no-repeat;
+  background: url("../img/images/bg/bg-11.jpg") no-repeat;
   background-size: cover;
 }
 
@@ -1211,13 +1211,13 @@ a:focus {
 }
 
 .bg-counter {
-  background: url("../images/bg/bg-1.jpg") no-repeat;
+  background: url("../img/images/bg/bg-1.jpg") no-repeat;
   background-size: cover;
   background-position: 50% 67%;
 }
 
 .bg-counter-2 {
-  background: url("../images/bg/bg-9.jpg") no-repeat;
+  background: url("../img/images/bg/bg-9.jpg") no-repeat;
   background-size: cover;
   background-position: 50% 40%;
 }
@@ -1298,7 +1298,7 @@ a:focus {
 }
 
 .bg-testimonial {
-  background: url("../images/bg/bg-3.jpg") no-repeat;
+  background: url("../img/images/bg/bg-3.jpg") no-repeat;
   background-size: cover;
   position: absolute;
   content: "";
@@ -1349,7 +1349,7 @@ a:focus {
 .pattern-bg:before {
   position: absolute;
   content: "";
-  background: url("../images/about/pattern-short.png") no-repeat;
+  background: url("../img/images/about/pattern-short.png") no-repeat;
   width: 100%;
   height: 100%;
   left: 81%;
@@ -1359,7 +1359,7 @@ a:focus {
 }
 
 .testimonial-2 {
-  background: url("../images/bg/bg-8.jpg") no-repeat;
+  background: url("../img/images/bg/bg-8.jpg") no-repeat;
   background-size: cover;
 }
 .testimonial-2 p {
@@ -1490,7 +1490,7 @@ a:focus {
 .latest-blog:before {
   position: absolute;
   content: "";
-  background: url("../images/about/pattern-bg.png") no-repeat;
+  background: url("../img/images/about/pattern-bg.png") no-repeat;
   width: 100%;
   height: 100%;
   left: -63px;
@@ -1515,7 +1515,7 @@ a:focus {
 
 .blog-img.active-state:before {
   content: "";
-  background: url("../images/about/pattern-bg.png") no-repeat;
+  background: url("../img/images/about/pattern-bg.png") no-repeat;
   width: 100%;
   height: 100%;
   left: 73%;
@@ -1525,7 +1525,7 @@ a:focus {
 }
 
 .home-contact {
-  background: url("../images/bg/bg-7.jpg") center center no-repeat;
+  background: url("../img/images/bg/bg-7.jpg") center center no-repeat;
   background-size: cover;
 }
 .home-contact .form-control {
@@ -1566,7 +1566,7 @@ a:focus {
 }
 
 .pricing {
-  background: url("../images/bg/bg-pricing.jpg") 50% 50% no-repeat;
+  background: url("../img/images/bg/bg-pricing.jpg") 50% 50% no-repeat;
   background-size: cover;
 }
 .pricing .card {
@@ -1588,7 +1588,7 @@ a:focus {
 }
 .pricing .card.featured .card-header {
   border-bottom-color: rgba(255, 255, 255, 0.3);
-  background: url("../images/bg/p.png") 40% 0px no-repeat;
+  background: url("../img/images/bg/p.png") 40% 0px no-repeat;
 }
 .pricing .card.featured span {
   background: #a350ff;
@@ -1810,11 +1810,12 @@ a:focus {
 }
 
 .footer-2 {
-  background: url("../images/bg/footer-bg.jpg") no-repeat;
+  background: url("../img/images/bg/footer-bg.jpg") no-repeat;
   background-size: cover;
   color: rgba(255, 255, 255, 0.7);
 }
 .footer-2 a {
   color: rgba(255, 255, 255, 0.7);
 }
+
 
