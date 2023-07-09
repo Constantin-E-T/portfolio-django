@@ -1,0 +1,124 @@
+<!-- templates/about/about.html -->
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- about-banner -->
+<section class="about-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4 class="text-color">Emilian C T</h4>
+                <h3>I am a Web Developer</h3>
+                <p class="text-sm-2 mt-4 mb-5 text-black">I am a web developer
+                    with half a decade of experience in web development. I work
+                    with Python, Django, SEO, AI, HTML, CSS, JS, React,
+                    Bootstrap, and create web apps and websites for small
+                    businesses and individuals.</p>
+                <ul class="list-inline socials-links">
+                    <li class="list-inline-item">
+                        <a href="#" class="active"><i
+                                class="ti-facebook"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#"><i class="ti-twitter"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#"><i class="ti-vimeo"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#"><i class="ti-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about-banner end-->
+
+<!-- Stack Start -->
+<section class="section-sm bg-secondary">
+    <div class="container">
+        <div class="row clients-wrap">
+            <div>
+                <img src="{% static 'img/images/clients/client-1.png' %}" alt=""
+                    class="img-fluid mx-auto">
+            </div>
+            <div>
+                <img src="{% static 'img/images/clients/client-2.png' %}" alt=""
+                    class="img-fluid mx-auto">
+            </div>
+            <div>
+                <img src="{% static 'img/images/clients/client-3.png' %}" alt=""
+                    class="img-fluid mx-auto">
+            </div>
+            <div>
+                <img src="{% static 'img/images/clients/client-4.png' %}" alt=""
+                    class="img-fluid mx-auto">
+            </div>
+            <div>
+                <img src="{% static 'img/images/clients/client-5.png' %}" alt=""
+                    class="img-fluid mx-auto">
+            </div>
+            <div>
+                <img src="{% static 'img/images/clients/client-3.png' %}" alt=""
+                    class="img-fluid mx-auto">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Stack End -->
+
+<!-- Testimonial Start -->
+<section class="section testimonial position-relative bg-2 overflow-hidden">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <span class="h5 text-color text-uppercase">
+                    testimonials
+                </span>
+                <h3 class="mb-5 mt-2">Our Clients Say</h3>
+            </div>
+        </div>
+        {% for testimonial in testimonials %}
+        <div class="col-lg-4">
+            <div class="card text-center rounded-0 shadow mb-4">
+                <div class="img-block position-relative mb-4">
+                    <img src="{% static 'img/images/team/test-1.jpg' %}" alt=""
+                        class="img-fluid">
+                    <i class="fa fa-quote-right"></i>
+                </div>
+                <p>{{ testimonial.testimonial }}</p>
+                <h5 class="mb-0 mt-2">{{ testimonial.name }}</h5>
+                <span class="text-color">{{ testimonial.role }}</span>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row testimonial-slider">
+
+        </div>
+    </div>
+</section>
+
+<!-- Testimonial Ends -->
+
+<!-- Call To action Start -->
+<section class="position-relative section-sm bg-extra">
+	<img src="{% static 'img/images/bg/cta-bg-2.png' %}" alt="" class="overlay-shape">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-9 mb-5 mb-lg-0">
+				<h2 class="text-white mb-0">I give the smart solution for your business</h2>
+			</div>
+			<div class="col-lg-3">
+				<a href="#" class="btn btn-primary">get a quote</a>	
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Call to action End -->
+
+
+{% endblock %}
