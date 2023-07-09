@@ -1,8 +1,10 @@
 <!-- templates/navbar.html -->
 {% load static %}
+{% load active_link_tags %}
 
 
-<nav class="navbar navbar-expand-lg fixed-top main-nav" id="main-nav">
+
+<nav class="navbar navbar-expand-lg fixed-top main-nav" id="main-nav" style="background-color: #1f1f40;">
 	<div class="container">
 		<a class="navbar-brand" href="{% url 'home' %}">
 			<img src="{% static 'img/images/logo.png' %}" alt="" class="img-fluid">
@@ -13,9 +15,9 @@
 			<span class="fa fa-bars"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navigation">
+		<div class="collapse navbar-collapse" id="navigation" >
 			<ul class="navbar-nav ml-auto text-center">
-				<li class="nav-item active">
+				<li class="nav-item {% active_link 'home' %}">
 					<a class="nav-link" href="{% url 'home' %}">Home</a>
 				</li>
 				<li class="nav-item">
@@ -24,16 +26,17 @@
 				<li class="nav-item">
 					<a class="nav-link" href="#">Services</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Portfolio</a>
+				<li class="nav-item {% active_link 'project_index' %}">
+					<a class="nav-link" href="{% url 'project_index' %}">Portfolio</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">News</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href#">Contact</a>
+					<a class="nav-link" href="#">Contact</a>
 				</li>
 			</ul>
 		</div>
+		
 	</div>
 </nav>

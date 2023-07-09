@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # my apps
     'home',
+    'projects',
+    # libraries
+    'active_link',
 ]
 
 MIDDLEWARE = [
@@ -78,6 +81,14 @@ DATABASES = {
     default=config('DATABASE_URL')
 )
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation

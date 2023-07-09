@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- Portfolio  Start -->
+<section class="section portfolio-5">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-10 text-center">
+				<span class="h5 text-color text-uppercase">
+					my works
+				</span>
+				<h3 class="mb-5 mt-2">Wide Grid Portfolio</h3>
+			</div>
+		</div>
+
+        <div class="row align-items-center mb-5">
+            <div class="col-12 text-center">
+                <div class="btn-group btn-group-toggle " data-toggle="buttons">
+                    <label class="btn border-0 active" id="all-btn">
+                        <input type="radio" name="shuffle-filter" value="all" checked="checked" onchange="filterProjects('all')" />All Projects
+                    </label>
+                    {% for category in categories %}
+                    <label class="btn border-0" id="{{ category.name }}-btn">
+                        <input type="radio" name="shuffle-filter" value="{{ category.name }}" onchange="filterProjects('{{ category.name }}')" />{{ category.name }}
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+          
+  </div>	
+  	
+
+  <div class="container-fluid">
+    <div class="row shuffle-wrapper portfolio-gallery">
+      {% for project in projects %}
+      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-category="{{ project.category.name }}">
+          <div class="position-relative inner-box">
+            <div class="image position-relative ">
+               <img src="{% static 'img/images/portfolio/p-1.jpg' %}" alt="portfolio-image" class="img-fluid w-100 d-block">
+                <div class="overlay-box">
+                  <div class="overlay-inner">
+                    <a class="overlay-content text-center" href="{% url 'project_detail' project.id %}">
+                      <h5 class="mb-0 text-white">{{ project.title }}</h5>
+                      <p>{{ project.category.name }}</p>
+                    </a>
+                  </div>
+                </div> 
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+	</div>
+</section>
+<!-- Portfolio  End -->
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/projects.js' %}"></script>
+{% endblock %}
