@@ -76,11 +76,19 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
+# AWS postgresDB
+
 DATABASES = {
-'default': dj_database_url.config(
-    default=config('DATABASE_URL')
-)
+    'default': {
+        'ENGINE':config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
 }
+
 
 
 # DATABASES = {
