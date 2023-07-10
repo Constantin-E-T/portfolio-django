@@ -1824,3 +1824,49 @@ a:focus {
 }
 
 
+/* my stylers */
+.card {
+  transition: background-color 0.3s ease;
+}
+
+.card:hover {
+  background-color: #934AE4 !important;
+  color: white !important;
+}
+
+.card:hover .btn-outline-primary {
+  background-color: #F57479 !important;
+  color: white !important;
+}
+
+.card .package {
+  background-color: #A350FF !important;
+  color: white !important;
+  padding: 5px;
+}
+
+.card:hover p {
+  color: white !important;
+}
+
+.card:hover .price {
+  color: white !important;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  background-color: #F57479;
+  color: #ffffff;
+  padding: 10px;
+  font-size: 1em;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  transform: rotate(-45deg);
+  transform-origin: 0 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100px;
+  text-align: center;
+  font-weight: bold;
+}

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'home',
     'projects',
     'about',
+    'services',
     # libraries
     'active_link',
 ]
