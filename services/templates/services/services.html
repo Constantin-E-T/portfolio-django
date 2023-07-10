@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 
 {% load static %}
-
-
+{% load filters %}
 
 {% block content %}
 <section class="page-title service-bg header-padding">
@@ -102,7 +101,17 @@
 					{% endif %}
 					<div class="card-header">
 						<span class="package d-inline-block text-capitalize">{{ pricing.package_type }}</span>
-						<h3 class="price mt-4 font-weight-bold">£{{ pricing.price }} <small class="text-color text-sm"> / mo</small></h3>
+						<h4 class="price mt-4 font-weight-bold">
+                            {% if pricing.discount %}
+                                <s class="original-price">£{{ pricing.price }}</s>
+                                <small class="text-color text-sm"> / mo</small>
+                                <span class="discounted-price">£{{ pricing.price|discounted_price:pricing.discount }}</span>
+                            {% else %}
+                                £{{ pricing.price }}
+                            {% endif %}
+                            <small class="text-color text-sm"> / mo</small>
+                        </h4>
+                        
 						<p>{{ pricing.description }}</p>
 					</div>
 
