@@ -1,3 +1,4 @@
+<!-- news/templates/news/news_list.html -->
 {% extends 'base.html' %}
 
 {% load static %}
@@ -84,6 +85,7 @@
                     <h4 class="mb-4">Tags</h4>
                     {% for tag in tags %}
                         <a href="{% url 'news_by_tag' tag.slug %}">{{ tag.name }}</a>
+
                     {% endfor %}
 
                 </div>
