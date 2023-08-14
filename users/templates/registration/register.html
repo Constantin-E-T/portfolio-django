@@ -1,0 +1,44 @@
+<!-- users/templates/registration/register.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<section class="contact-form-wrap section">
+    <div class="container">
+        <div class="row justify-content-center align-items-center bg-gray">
+            <div class="col-lg-10">
+                <div class="contact-content pl-lg-5 mb-5 mb-lg-0">
+                   <h3 class="mb-4 font-weight-bold">Register</h3>
+                   <p>Welcome to our platform! Please fill out the form below to create your account.</p>
+                   {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                   <div class="row justify-content-center">
+                       <div class="col-lg-10 mt-4">
+                           <div class="contact-form">
+                               <form method="post">
+                                   
+                                   {% csrf_token %}
+                                   {% for field in form %}
+                                   <div class="form-group">
+                                       <input class="form-control" type="{{ field.field.widget.input_type }}" name="{{ field.name }}" id="{{ field.auto_id }}" placeholder="{{ field.label }}{% if field.field.required %}*{% endif %}">
+                                   </div>
+                                   {% endfor %}
+                                   <input type="submit" class="btn btn-primary" value="Register">
+                               </form>
+                           </div>
+                       </div>  
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

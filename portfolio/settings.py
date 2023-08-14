@@ -39,9 +39,16 @@ INSTALLED_APPS = [
     'about',
     'services',
     'news',
+    'users',
     # libraries
     'active_link',
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser'
+LOGIN_REDIRECT_URL = '/users/profile/'
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

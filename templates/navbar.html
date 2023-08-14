@@ -2,8 +2,6 @@
 {% load static %}
 {% load active_link_tags %}
 
-
-
 <nav class="navbar navbar-expand-lg fixed-top main-nav" id="main-nav" style="background-color: #1f1f40;">
 	<div class="container">
 		<a class="navbar-brand" href="{% url 'home' %}">
@@ -15,7 +13,7 @@
 			<span class="fa fa-bars"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navigation" >
+		<div class="collapse navbar-collapse" id="navigation">
 			<ul class="navbar-nav ml-auto text-center">
 				<li class="nav-item {% active_link 'home' %}">
 					<a class="nav-link" href="{% url 'home' %}">Home</a>
@@ -25,7 +23,7 @@
 				</li>
 				<li class="nav-item {% active_link 'services' %}">
 					<a class="nav-link" href="{% url 'services' %}">Services</a>
-				</li>				
+				</li>
 				<li class="nav-item {% active_link 'project_index' %}">
 					<a class="nav-link" href="{% url 'project_index' %}">Portfolio</a>
 				</li>
@@ -35,8 +33,22 @@
 				<li class="nav-item">
 					<a class="nav-link" href="#">Contact</a>
 				</li>
+				{% if user.is_authenticated %}
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'profile' %}">Profile</a>
+				</li>
+				{% else %}
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'login' %}">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'register' %}">Register</a>
+				</li>
+				{% endif %}
 			</ul>
 		</div>
-		
 	</div>
 </nav>
