@@ -12,6 +12,8 @@
            <p class="text-white">{{ news.content|truncatewords:30 }}</p>
       </div>
     </div>
+	
+
   </div>
 </section>
 
@@ -23,8 +25,17 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-8">
 				<h3 class="mt-4 mb-2">{{ news.title }}</h3>
+				{% if messages %}
+				<div class="messages">
+					{% for message in messages %}
+					<div class="alert alert-{{ message.tags }}">
+						{{ message }}
+					</div>
+					{% endfor %}
+				</div>
+				{% endif %}
 				<div class="post-meta text-uppercase mb-3">
-					<a href="#" class="text-color">by {{ news.author }} </a>
+					<a href="{% url 'profile' %}" class="text-color">by {{ news.author.get_full_name }} </a>
 					<span class="text-color">/ on {{ news.created_at|date:"d M, Y" }}</span>
 				</div>
 				<p>{{ news.content }}</p>
@@ -62,8 +73,8 @@
 						<ul class="list-inline post-tags">
 							<li class="list-inline-item"><h5>Tags:</h5></li>
 							{% for tag in news.tags.all %}
-    <li class="list-inline-item"><a href="{% url 'news_by_tag' tag.slug %}">{{ tag.name }}</a></li>
-{% endfor %}
+							<li class="list-inline-item"><a href="{% url 'news_by_tag' tag.slug %}">{{ tag.name }}</a></li>
+						{% endfor %}
 
 						</ul>
 					</div>
@@ -77,6 +88,10 @@
 						</ul>
 					</div>
 				</div>
+				{% if user == news.author %}
+					<a class="btn btn-outline-primary" href="{% url 'news_edit' news.id news.slug %}">Edit</a>
+					<a class="btn btn-outline-primary" href="{% url 'news_delete' news.id news.slug %}">Delete</a>
+				{% endif %}
 			</div>
 		</div>
 	</div>

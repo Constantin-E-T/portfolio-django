@@ -1,5 +1,8 @@
+# news/models.py
+
 from django.db import models
 from django.utils.text import slugify
+from django.conf import settings
 
 class Category(models.Model):
     name = models.CharField(max_length=200)
@@ -44,6 +47,8 @@ class Tag(models.Model):
         return self.name
 
 class News(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True, blank=True)
     content = models.TextField()

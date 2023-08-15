@@ -1,8 +1,12 @@
 # news/views.py
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseForbidden
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import News, Category, Tag
 from django.core.paginator import Paginator
 from django.db.models import Count
+from .forms import NewsForm
 
 
 
@@ -54,6 +58,51 @@ def news_by_tag(request, tag_slug):
         'selected_tag': tag
     }
     return render(request, 'news/news_list.html', context)
+
+# create update delete post
+
+@login_required
+def news_create(request):
+    if request.method == 'POST':
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            news = form.save(commit=False)
+            news.author = request.user
+            news.save()
+            messages.success(request, "News article created successfully!")
+            return redirect('news_detail', id=news.id, slug=news.slug)
+    else:
+        form = NewsForm()
+    return render(request, 'news/news_form.html', {'form': form})
+
+
+def news_edit(request, id, slug):
+    news = get_object_or_404(News, id=id, slug=slug)
+    
+    # Check if the logged-in user is the author of the post
+    if request.user != news.author:
+        return HttpResponseForbidden("You don't have permission to edit this post.")
+
+    if request.method == 'POST':
+        form = NewsForm(request.POST, instance=news)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "News article updated successfully!")
+            return redirect('news_detail', id=news.id, slug=news.slug)
+    else:
+        form = NewsForm(instance=news)
+    return render(request, 'news/news_form.html', {'form': form})
+
+def news_delete(request, id, slug):
+    news = get_object_or_404(News, id=id, slug=slug)
+    
+    # Check if the logged-in user is the author of the post
+    if request.user != news.author:
+        return HttpResponseForbidden("You don't have permission to delete this post.")
+
+    news.delete()
+    messages.success(request, "News article deleted successfully!")
+    return redirect('news_list')
 
 
 

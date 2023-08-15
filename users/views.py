@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from .forms import CustomUserCreationForm
 from .models import CustomUser
+from news.models import News
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import CustomUserUpdateForm
@@ -27,7 +28,9 @@ def profile(request):
     all_users = None
     if request.user.is_superuser:
         all_users = CustomUser.objects.all()
-    return render(request, 'registration/profile.html', {'all_users': all_users})
+    recent_news = News.objects.filter(author=request.user).order_by('-created_at')[:5]
+    return render(request, 'registration/profile.html', {'all_users': all_users, 'recent_news': recent_news})
+
 
 
 @login_required

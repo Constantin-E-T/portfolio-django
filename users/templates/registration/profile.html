@@ -2,6 +2,8 @@
 
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
 <!-- Profile Banner -->
@@ -12,6 +14,15 @@
                 <h4 class="text-color">{{ user.first_name }} {{ user.last_name }}
                     {% if user.is_superuser %}
                         <span class="badge badge-danger">Admin <i class="fas fa-crown"></i></span>
+                    {% endif %}
+                    {% if user.date_joined|timesince:"d" < 7 %}
+                        <span class="badge badge-info">New User <i class="fas fa-star"></i></span>
+                    {% endif %}
+                    {% if user.news_set.count > 10 %}
+                        <span class="badge badge-warning">Power User <i class="fas fa-rocket"></i></span>
+                    {% endif %}
+                    {% if user.first_name and user.last_name and user.email and user.address and user.phone_number and user.postcode and user.town and user.country_of_residence %}
+                        <span class="badge badge-primary">Complete Profile <i class="fas fa-check-circle"></i></span>
                     {% endif %}
                 </h4>
                 
@@ -30,14 +41,10 @@
     </div>
     <div class="container mt-4">
         <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+        <a href="{% url 'news_create' %}" class="btn btn-primary">Create News Post</a>
     </div>
     
-    <div class="container mt-4">
-        <form method="post" action="{% url 'delete_account' %}">
-            {% csrf_token %}
-            <button type="submit" onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.');" class="btn btn-danger">Delete Account</button>
-        </form>
-    </div>
+    
 </section>
 <!-- Profile Banner end-->
 
@@ -112,32 +119,40 @@
             <p><strong>Country of Residence:</strong> {{ user.country_of_residence }}</p>
         </div>
     </div>
-    
     </div>
-    
+    <div class="container mt-4">
+        <form method="post" action="{% url 'delete_account' %}">
+            {% csrf_token %}
+            <button type="submit" onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.');" class="btn btn-danger">Delete Account</button>
+        </form>
+    </div>
 </section>
 <!-- User Details End -->
 
 <!-- User Activities or Other Relevant Info -->
-<section class="section testimonial position-relative bg-2 overflow-hidden">
+<section class="section related-project">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h3 class="mb-5 mt-2">Your Recent Activities</h3>
+                <h3 class="mb-5">Your Recent Activities</h3>
             </div>
         </div>
         <div class="row">
-            <!-- You can list user's recent activities here -->
-            <!-- Example: -->
-            <!-- <div class="col-lg-4">
-                <p>Activity 1</p>
-            </div>
+            {% for news_item in recent_news %}
             <div class="col-lg-4">
-                <p>Activity 2</p>
-            </div> -->
+                <div class="portfolio-block text-center border-0 ">
+                    <img src="{% static 'img/images/portfolio/p-1.jpg' %}" class="img-fluid" alt="{{ news_item.title }}">
+                    <a class="card-img-overlay" href="{% url 'news_detail' news_item.id news_item.slug %}">
+                        <h5 class="card-title text-white mb-0">{{ news_item.title }}</h5>
+                        <p class="card-text text-white text-uppercase text-sm">{{ news_item.created_at|date:"d M, Y" }}</p>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
+
 
 <!-- Call To action Start -->
 <section class="position-relative section-sm bg-extra">

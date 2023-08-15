@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'users.CustomUser'
 LOGIN_REDIRECT_URL = '/users/profile/'
+LOGIN_URL = 'login'
 
 
 

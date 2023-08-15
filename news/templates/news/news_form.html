@@ -1,0 +1,51 @@
+<!-- news/templates/news/news_form.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<section class="contact-form-wrap section">
+    <div class="container">
+        {% if messages %}
+				<div class="messages">
+					{% for message in messages %}
+					<div class="alert alert-{{ message.tags }}">
+						{{ message }}
+					</div>
+					{% endfor %}
+				</div>
+				{% endif %}
+
+        <div class="row justify-content-center align-items-center bg-gray">
+            <div class="col-lg-10">
+                <div class="contact-content pl-lg-5 mb-5 mb-lg-0">
+                   <h3 class="mb-4 font-weight-bold">Edit News</h3>
+                   <p>Update the news details below.</p>
+
+                   <div class="row justify-content-center">
+                       <div class="col-lg-10 mt-4">
+                           <div class="contact-form">
+                               <form method="post">
+                                   {% csrf_token %}
+                                   {% for field in form %}
+                                    <div class="form-group">
+                                        <label for="{{ field.auto_id }}">{{ field.label }}</label>
+                                        {% if field.name == "category" %}
+                                            {{ field }}
+                                        {% elif field.name == "tags" %}
+                                            {{ field }}
+                                        {% else %}
+                                            <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" id="{{ field.auto_id }}" class="form-control" value="{{ field.value }}" placeholder="{{ field.label }}{% if field.field.required %}*{% endif %}">
+                                        {% endif %}
+                                    </div>
+                                    {% endfor %}
+                                   <button type="submit" class="btn btn-primary">Update Details</button>
+                               </form>
+                           </div>
+                       </div>  
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
