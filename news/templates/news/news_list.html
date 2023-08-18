@@ -34,7 +34,7 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="blog-item mb-5">
                             <div class="blog-img position-relative">
-                                <img src="{% static 'img/images/blog/blog-1.jpg' %}" alt="" class="img-fluid w-100">
+                                <img src="{{ news_item.image.url }}" alt="" class="img-fluid w-100">
                                 <a class="blog-category" href="#">{{ news_item.category.name }}</a>
                             </div>
                             <h4 class="mt-4 mb-2">
@@ -84,7 +84,13 @@
                     <h4 class="mb-4">Latest Article</h4>
                     {% for latest_news_item in latest_news %}
                     <div class="media border-bottom py-3">
-                        <a href="#"><img class="mr-4 " src="{% static 'img/images/blog/img-1.jpg' %}" alt=""></a>
+                        
+                            <img class="mr-4" 
+                                 src="{{ latest_news_item.image.url }}" 
+                                 alt="" 
+                                 style="width: 5rem; height: 5rem;">
+                        
+                        
                         <div class="media-body">
                             <h5 class="my-2">
                                 {% if latest_news_item.slug %}
@@ -102,10 +108,12 @@
                 </div>
                 <div class="sidebar-widget tags">
                     <h4 class="mb-4">Tags</h4>
-                    <!-- Link to view all posts -->
-                    <a href="{% url 'news_list' %}">All Tags</a>
+                    {% if not request.resolver_match.url_name == 'news_list' %}
+                        <!-- Link to view all posts -->
+                        <a href="{% url 'news_list' %}">All Tags</a>
+                    {% endif %}
                     {% if selected_tag %}
-                        <a href="{% url 'news_by_tag' selected_tag.slug %}">{{ selected_tag.name }}</a>
+                        {{ selected_tag.name }}
                     {% else %}
                         {% for tag in tags %}
                             <a href="{% url 'news_by_tag' tag.slug %}">{{ tag.name }}</a>

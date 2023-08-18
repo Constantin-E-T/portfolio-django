@@ -141,7 +141,7 @@
             {% for news_item in recent_news %}
             <div class="col-lg-4">
                 <div class="portfolio-block text-center border-0 ">
-                    <img src="{% static 'img/images/portfolio/p-1.jpg' %}" class="img-fluid" alt="{{ news_item.title }}">
+                    <img style="width: 80%; height: 40%;" src="{{ news_item.image.url }}" class="img-fluid" alt="{{ news_item.title }}">
                     <a class="card-img-overlay" href="{% url 'news_detail' news_item.id news_item.slug %}">
                         <h5 class="card-title text-white mb-0">{{ news_item.title }}</h5>
                         <p class="card-text text-white text-uppercase text-sm">{{ news_item.created_at|date:"d M, Y" }}</p>

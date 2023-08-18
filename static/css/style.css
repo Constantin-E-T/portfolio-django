@@ -1889,3 +1889,7 @@ a:focus {
   50% { transform: translateY(-5px); }
 }
 
+.small-image {
+  width: 20px !important;
+  height: 20px !important;
+}

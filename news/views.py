@@ -28,7 +28,7 @@ def news_list(request, category_slug=None):
     page_number = request.GET.get('page')
     news = paginator.get_page(page_number)
 
-    return render(request, 'news/news_list.html', {'category': category, 'categories': categories, 'news': news, 'latest_news': latest_news, 'tags': tags})
+    return render(request, 'news/news_list.html', {'category': category, 'categories': categories, 'news': news, 'latest_news': latest_news, 'tags': tags,'news_list': news_list})
 
 
 
@@ -64,7 +64,7 @@ def news_by_tag(request, tag_slug):
 @login_required
 def news_create(request):
     if request.method == 'POST':
-        form = NewsForm(request.POST)
+        form = NewsForm(request.POST, request.FILES)  # Include request.FILES
         if form.is_valid():
             news = form.save(commit=False)
             news.author = request.user
@@ -84,7 +84,7 @@ def news_edit(request, id, slug):
         return HttpResponseForbidden("You don't have permission to edit this post.")
 
     if request.method == 'POST':
-        form = NewsForm(request.POST, instance=news)
+        form = NewsForm(request.POST, request.FILES, instance=news)  # Include request.FILES here
         if form.is_valid():
             form.save()
             messages.success(request, "News article updated successfully!")
@@ -92,6 +92,7 @@ def news_edit(request, id, slug):
     else:
         form = NewsForm(instance=news)
     return render(request, 'news/news_form.html', {'form': form})
+
 
 def news_delete(request, id, slug):
     news = get_object_or_404(News, id=id, slug=slug)

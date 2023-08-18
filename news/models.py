@@ -3,6 +3,10 @@
 from django.db import models
 from django.utils.text import slugify
 from django.conf import settings
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFill
+from PIL import Image
+
 
 class Category(models.Model):
     name = models.CharField(max_length=200)
@@ -48,7 +52,7 @@ class Tag(models.Model):
 
 class News(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
-
+    image = models.ImageField(upload_to='blog_images/', null=True, blank=True)
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True, blank=True)
     content = models.TextField()
@@ -58,9 +62,16 @@ class News(models.Model):
     tags = models.ManyToManyField(Tag)
 
     def save(self, *args, **kwargs):
+        try:
+            # is the object in the database yet?
+            this = News.objects.get(id=self.id)
+            if this.image != self.image:
+                this.image.delete(save=False)
+        except: pass  # when new photo then we do nothing, normal case
+
         if not self.slug:
             self.slug = self.generate_unique_slug()
-        super().save(*args, **kwargs)
+        super(News, self).save(*args, **kwargs)
 
     def generate_unique_slug(self):
         original_slug = slugify(self.title)

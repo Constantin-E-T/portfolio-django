@@ -4,6 +4,7 @@
 from pathlib import Path
 from decouple import config
 import dj_database_url
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'users',
     # libraries
     'active_link',
+    'imagekit',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
@@ -150,6 +152,9 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # new
 WHITENOISE_IGNORE_MISSING = True
