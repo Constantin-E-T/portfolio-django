@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'services',
     'news',
     'users',
+    'contact',
     # libraries
     'active_link',
     'imagekit',

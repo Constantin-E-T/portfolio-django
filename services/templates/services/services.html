@@ -122,7 +122,8 @@
 							<li>{{ pricing.service3 }}</li>
 						</ul>
 
-						<a href="#" class="btn btn-outline-primary">select plan</a>
+						<a href="{% url 'contact' %}?package={{ pricing.package_type }}" class="btn btn-outline-primary">Select Plan</a>
+
 					</div>
 				</div>
 			</div>

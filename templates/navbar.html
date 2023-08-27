@@ -4,8 +4,8 @@
 
 <nav class="navbar navbar-expand-lg fixed-top main-nav" id="main-nav" style="background-color: #1f1f40;">
 	<div class="container">
-		<a class="navbar-brand" href="{% url 'home' %}">
-			<img src="{% static 'img/images/logo.png' %}" alt="" class="img-fluid">
+		<a class="navbar-brand" id="logo-image" href="{% url 'home' %}">
+			<img src="{% static 'img/images/logo.svg' %}" alt="" class="img-fluid">
 		</a>
 
 		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navigation"
@@ -31,7 +31,7 @@
 					<a class="nav-link" href="{% url 'news_list' %}">News</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Contact</a>
+					<a class="nav-link" href="{% url 'contact' %}">Contact</a>
 				</li>
 				{% if user.is_authenticated %}
 				<li class="nav-item">
@@ -48,6 +48,7 @@
 					<a class="nav-link" href="{% url 'register' %}">Register</a>
 				</li>
 				{% endif %}
+				
 			</ul>
 		</div>
 	</div>

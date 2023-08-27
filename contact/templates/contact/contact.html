@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% include "js/contact.js" %}
+
+
+
+{% block content %}
+
+<!-- Page Title -->
+<section class="page-title portfolio-bg header-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 glassmorphism">
+                <h2 class="text-capitalize mb-2 text-lg text-white">Contact Me</h2>
+                <p class="text-white">Ready to start your next project with me? That's great! Give me a call or send me an email and I will get back to you as soon as possible!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Start -->
+<section class="contact-form-wrap section">
+    <div class="container">
+        <div class="row justify-content-center align-items-center bg-gray">
+            <div class="col-lg-10">
+                <div class="contact-content pl-lg-5 mb-5 mb-lg-0">
+                    <h3 class="mb-4 font-weight-bold">Contact Information</h3>
+                    <p>If you have any questions or need further information, please feel free to contact me. I am here to help you!</p>
+        
+                    <div class="row mt-5">
+                        <div class="col-lg-4">
+                            <div class="contact-info mt-3">
+                                <i class="ti-location-pin text-color"></i>
+                                <div class="info">
+                                    <h4>Our Address</h4>
+                                    <p>Portsmouth Southsea, PO4, Hampshire, UK</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="contact-info mt-3">
+                                <i class="ti-mobile text-color"></i>
+                                <div class="info">
+                                    <h4>Call Us</h4>
+                                    <p>+44 7576 101210</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="contact-info mt-3">
+                                <i class="ti-email text-color"></i>
+                                <div class="info">
+                                    <h4>Email Us</h4>
+                                    <p><a style="color: #84849c;" href="mailto:emiliantivlica@yahoo.com">emiliantivlica@yahoo.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Map Start -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="google-map position-relative my-5">
+                    <div id="map" style="width: 100%; height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Map End -->
+
+        
+
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-10 mt-4">
+                <div class="contact-form">
+                    <h3 class="mb-4 font-weight-bold">Get In Touch</h3>
+                    <form id="contact-form">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="first_name" id="first_name" placeholder="First Name*" value="{{ user.first_name }}" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="last_name" id="last_name" placeholder="Last Name*" value="{{ user.last_name }}" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class="form-control" type="email" name="email" id="email" placeholder="Email*" value="{{ user.email }}" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="phone" id="phone" placeholder="Phone Number" value="{{ user.phone_number }}" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="location" id="location" placeholder="Location" value="{{ user.address }}">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="company" id="company" placeholder="Company" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="postcode" id="postcode" placeholder="Postcode" value="{{ user.postcode }}" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="town" id="town" placeholder="Town" value="{{ user.town }}" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="country_of_residence" id="country_of_residence" placeholder="Country of Residence" value="{{ user.country_of_residence }}" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class="form-control" type="number" name="budget" id="budget" placeholder="Budget Allocated to the Project (£)" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="time_frame" id="time_frame" placeholder="Time Frame Estimate (e.g., 2 weeks, 3 months)" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="checkbox" name="negotiable" id="negotiable">
+                            <label for="negotiable" style="color: black;">Budget is Negotiable</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Select a Service Package:</label><br>
+                            {% for pricing in pricings %}
+                                <input type="checkbox" name="service_package" value="{{ pricing.package_type }}" id="package_{{ forloop.counter }}"
+                                       {% if pricing.package_type == selected_package %}checked{% endif %}>
+                                <label for="package_{{ forloop.counter }}" style="color: black;">{{ pricing.package_type }}</label><br>
+                                {% if pricing.package_type == selected_package %}
+                                    <p>Total Price: £{{ pricing.discounted_price|floatformat:2 }} / mo</p>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control mt-3 mb-4" name="message" id="message" cols="30" rows="6" placeholder="Message" required></textarea>
+                        </div>
+                        
+                        <input type="submit" class="btn btn-primary" value="Submit Message">
+                    </form>
+                </div>
+            </div>  
+        </div>
+    </div>
+</section>
+<!-- Contact Form End -->
+{% endblock %}

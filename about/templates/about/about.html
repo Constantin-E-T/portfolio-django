@@ -9,8 +9,8 @@
 <section class="about-banner">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
-                <h4 class="text-color">Emilian C T</h4>
+            <div class="col-lg-6 glassmorphism1">
+                <h4 class="text-color ">Emilian C T</h4>
                 <h3>I am a Web Developer</h3>
                 <p class="text-sm-2 mt-4 mb-5 text-black">I am a web developer
                     with half a decade of experience in web development. I work
@@ -82,27 +82,29 @@
                 <h3 class="mb-5 mt-2">Our Clients Say</h3>
             </div>
         </div>
-        {% for testimonial in testimonials %}
-        <div class="col-lg-4">
-            <div class="card text-center rounded-0 shadow mb-4">
-                <div class="img-block position-relative mb-4">
-                    <img src="{% static 'img/images/team/test-1.jpg' %}" alt=""
-                        class="img-fluid">
-                    <i class="fa fa-quote-right"></i>
+        <div class="row"> <!-- Add this row here -->
+            {% for testimonial in testimonials %}
+            <div class="col-lg-4">
+                <div class="card text-center rounded-0 shadow mb-4">
+                    <div class="img-block position-relative mb-4">
+                        <img src="{% static 'img/images/team/test-1.jpg' %}" alt=""
+                            class="img-fluid">
+                        <i class="fa fa-quote-right"></i>
+                    </div>
+                    <p>{{ testimonial.testimonial }}</p>
+                    <h5 class="mb-0 mt-2">{{ testimonial.name }}</h5>
+                    <span class="text-color">{{ testimonial.role }}</span>
                 </div>
-                <p>{{ testimonial.testimonial }}</p>
-                <h5 class="mb-0 mt-2">{{ testimonial.name }}</h5>
-                <span class="text-color">{{ testimonial.role }}</span>
             </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
+        </div> <!-- Close the row here -->
         <div class="row testimonial-slider">
 
         </div>
     </div>
 </section>
-
 <!-- Testimonial Ends -->
+
 
 <!-- Call To action Start -->
 <section class="position-relative section-sm bg-extra">

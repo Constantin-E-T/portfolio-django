@@ -31,6 +31,10 @@
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <!-- Map API -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+
 
       
       </head>
@@ -49,6 +53,12 @@
     
         <!-- jQuery -->
         <script src="{% static 'plugins/jQuery/jquery.min.js' %}"></script>
+        <!-- emailJS -->
+        <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+        <!-- mapAPI -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+
 
         <!-- Popper.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -71,10 +81,9 @@
         <!-- Main Scripts -->
         <script src="{% static 'js/script.js' %}"></script>
     
-        <!-- Include the search script -->
-        <!-- <script src="{% static 'js/search.js' %}"></script> -->
         <script src="{% static 'js/paginator.js' %}"></script>
-
+        
+        
 
         <script src="{% static 'js/contact.js' %}"></script>
         <script src="{% static 'js/experience.js' %}"></script>
