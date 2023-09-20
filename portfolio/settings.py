@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # The `ALLOWED_HOSTS` setting in Django is used to specify a list of host/domain names that the Django
 # application can serve.
@@ -112,7 +112,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Static files (CSS, JavaScript, Images)
 # Determine if we are running in production or locally
-IS_PRODUCTION = config('IS_PRODUCTION', default=False, cast=bool)
+IS_PRODUCTION = config('IS_PRODUCTION', default=True, cast=bool)
 
 # Database Configuration
 if IS_PRODUCTION:
